@@ -23,7 +23,6 @@
               <li><span class="scenario-objective">Create tables with different clustering columns</span></li>
               <li><span class="scenario-objective">Download and install Cassandra from a tarball</span></li>
             </ul>
-
             <a href='command:katapod.loadPage?[{"step":"step1"}]' class="btn btn-primary btn-cassandra">
               Start the lab
             </a>
