@@ -20,10 +20,31 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">XXXXXXX</div>
+<div class="step-title">Explore the videos_by_tag table</div>
 
 Clustering columns are the columns that are part of the primary key, but are not part of the partition key. This exercise will help you understand how clustering columns affects queries and how you can filter rows with them.
 
+Use `nodetool` to verify that Cassandra is running. (You may need to run this command multiple times.)
+
+✅ Verify that Cassandra is running.
+```
+apache-cassandra-4.1.0/bin/nodetool status
+```
+
+✅ Start 'cqlsh' so you can execute CQL statements:
+```
+apache-cassandra-4.1.0/bin/cqlsh
+```
+
+✅ Switch to the *killrvideo* keyspace via the `USE` command:
+```
+USE killrvideo;
+```
+
+✅ Execute the following command to view information about the *videos* table: 
+```
+DESCRIBE TABLE videos_by_tag;
+```
 ✅ Do something
 ```
 echo "something!"

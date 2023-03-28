@@ -26,6 +26,7 @@
             <div>
             Clustering columns are the columns that are part of the primary key, but are not part of the partition key. This exercise will help you understand how clustering columns affects queries and how you can filter rows with them.
             </div>
+            <br>
             <a href='command:katapod.loadPage?[{"step":"step1"}]' class="btn btn-primary btn-cassandra">
               Start the lab
             </a>
