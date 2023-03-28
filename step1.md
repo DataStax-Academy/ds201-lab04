@@ -74,21 +74,21 @@ WHERE tag = 'cassandra';
 ```
 SELECT * FROM videos_by_tag
 WHERE tag = 'cassandra' AND
-      video_id =  37f35f0f-2c35-11b2-7f7f-7f7f7f7f7f7f;
+      video_id =  245e8024-14bd-11e5-9743-8238356b7e32;
 ```
 
 ✅ Select videos using an inequality:
 ```
 SELECT * FROM videos_by_tag
 WHERE tag = 'cassandra' AND
-      video_id <= 37f35f0f-2c35-11b2-7f7f-7f7f7f7f7f7f;
+      video_id <= 245e8024-14bd-11e5-9743-8238356b7e32;
 ```
 
 ✅ Select videos using an inequality and reverse the order:
 ```
 SELECT * FROM videos_by_tag
 WHERE tag = 'cassandra' AND
-      video_id <= 37f35f0f-2c35-11b2-7f7f-7f7f7f7f7f7f
+      video_id <= 245e8024-14bd-11e5-9743-8238356b7e32;
 ORDER BY video_id DESC;
 ```
 
