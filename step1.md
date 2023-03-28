@@ -45,14 +45,51 @@ USE killrvideo;
 ```
 DESCRIBE TABLE videos_by_tag;
 ```
-✅ Do something
+
+You should see the following table definition
+
+`CREATE TABLE killrvideo.videos_by_tag (`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`tag text,`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`video_id timeuuid,`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`title text,`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`PRIMARY KEY (tag, video_id)`<br>
+`) ...`
+
+In this table the prartition key is `tag` and the clustering column is `video_id`. Therefore, rows are grouped by `tag` and ordered by `video_id`.
+
+Clustering columns support both equality and inequality predicates for CQL queries and also allow ordering within a partition. Define and execute several CQL queries against table videos_by_tag that use equality (=) and inequality (>,>=,<,<=) predicates, as well as row ordering with the ORDER BY clause.
+
+✅ Select *all* videos:
 ```
-echo "something!"
+SELECT * FROM videos_by_tag;
 ```
 
-✅ Do something else
+✅ Select a specific partition:
 ```
-echo "something else!"
+SELECT * FROM videos_by_tag
+WHERE tag = 'cassandra';
+```
+
+✅ Select a specific video:
+```
+SELECT * FROM videos_by_tag
+WHERE tag = 'cassandra' AND
+      video_id =  37f35f0f-2c35-11b2-7f7f-7f7f7f7f7f7f;
+```
+
+✅ Select videos using an inequality:
+```
+SELECT * FROM videos_by_tag
+WHERE tag = 'cassandra' AND
+      video_id <= 37f35f0f-2c35-11b2-7f7f-7f7f7f7f7f7f;
+```
+
+✅ Select videos using an inequality and reverse the order:
+```
+SELECT * FROM videos_by_tag
+WHERE tag = 'cassandra' AND
+      video_id <= 37f35f0f-2c35-11b2-7f7f-7f7f7f7f7f7f
+ORDER BY video_id DESC;
 ```
 
 <!-- NAVIGATION -->
