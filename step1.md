@@ -88,7 +88,7 @@ WHERE tag = 'cassandra' AND
 ```
 SELECT * FROM videos_by_tag
 WHERE tag = 'cassandra' AND
-      video_id <= 245e8024-14bd-11e5-9743-8238356b7e32;
+      video_id <= 245e8024-14bd-11e5-9743-8238356b7e32
 ORDER BY video_id DESC;
 ```
 
