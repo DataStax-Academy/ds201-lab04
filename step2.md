@@ -56,8 +56,30 @@ Verify that you get 4 rows as expected.
 
 The rows should be grouped by a tag and, within each partition, ordered in descending order of an added date.
 
+✅ Execute the original CQL query that table latest_videos_by_tag was designed for:
+```
+SELECT tag, video_id, added_date, title
+FROM latest_videos_by_tag
+WHERE tag = 'cassandra'
+ORDER BY added_date DESC;
+```
 
+✅ Change the original query below to return the cassandra videos added after 2020-02-01:
+```
+SELECT tag, video_id, added_date, title
+FROM latest_videos_by_tag
+WHERE tag = 'cassandra' AND
+      added_date > '2020-02-01'
+ORDER BY added_date DESC;
+```
 
+✅ Change the original query below to return the oldest cassandra video from the table. Use `LIMIT 1` to return only the first video in a result set:
+```
+SELECT tag, video_id, added_date, title
+FROM latest_videos_by_tag
+WHERE tag = 'cassandra'
+ORDER BY added_date DESC;
+```
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
  <a href='command:katapod.loadPage?[{"step":"step1"}]'
