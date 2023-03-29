@@ -42,7 +42,7 @@ CREATE TABLE latest_videos_by_tag (
 ✅ Import `videos-by-tag.csv` into the new table:
 ```
 COPY latest_videos_by_tag(tag, video_id, added_date, title)
-FROM '/home/ubuntu/labwork/data-files/videos-by-tag.csv'
+FROM '/workspace/ds201-lab02/data-files/videos-by-tag.csv'
 WITH HEADER = TRUE;
 ```
 
