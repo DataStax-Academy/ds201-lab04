@@ -64,12 +64,12 @@ WHERE tag = 'cassandra'
 ORDER BY added_date DESC;
 ```
 
-✅ Change the original query below to return the cassandra videos added after 2020-02-01:
+✅ Change the original query below to return the cassandra videos added after 2013-02-01:
 ```
 SELECT tag, video_id, added_date, title
 FROM latest_videos_by_tag
 WHERE tag = 'cassandra' AND
-      added_date > '2020-02-01'
+      added_date > '2013-02-01'
 ORDER BY added_date DESC;
 ```
 
@@ -78,7 +78,8 @@ ORDER BY added_date DESC;
 SELECT tag, video_id, added_date, title
 FROM latest_videos_by_tag
 WHERE tag = 'cassandra'
-ORDER BY added_date DESC;
+ORDER BY added_date ASC
+LIMIT 1;
 ```
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
