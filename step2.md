@@ -17,19 +17,46 @@
 
 <!-- CONTENT -->
 
-<div class="step-title">XXXXXXX</div>
+<div class="step-title">Create the <i>latest_videos_by_tag</i> table.</div>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget purus faucibus, consequat tortor a, feugiat diam. Fusce at tortor sagittis, gravida dolor sed, sollicitudin arcu. Nullam id dolor facilisis, elementum justo a, lobortis justo. Donec lacus magna, ultricies et urna at, congue imperdiet tortor. Vestibulum pulvinar, orci nec bibendum tincidunt, sapien ligula aliquet est, fringilla dictum ex sem vitae ligula. Ut et ultrices ante. Nulla egestas augue erat, vitae volutpat sem porttitor a. Donec ut ligula nulla. Nulla facilisi.
+In this portion of the exercise, you will create a table that supports queries like this one.
 
-✅ Do something
+`SELECT tag, video_id, added_date, title`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`FROM latest_videos_by_tag`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`WHERE tag = 'cassandra'`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`ORDER BY added_date DESC;`
+
+Rows will be grouped by *tag* and ordered by *added_date*. You will need to use *video_id* as part of the primary key to ensure uniqueness.
+
+✅ Create the table:
 ```
-echo "something!"
+CREATE TABLE latest_videos_by_tag (
+  tag TEXT,
+  video_id TIMEUUID,
+  added_date TIMESTAMP,
+  title TEXT,
+  PRIMARY KEY ((tag), added_date, video_id)
+) WITH CLUSTERING ORDER BY (added_date DESC, video_id ASC);
 ```
 
-✅ Do something else
+✅ Import `videos-by-tag.csv` into the new table:
 ```
-echo "something else!"
+COPY latest_videos_by_tag(tag, video_id, added_date, title)
+FROM '/home/ubuntu/labwork/data-files/videos-by-tag.csv'
+WITH HEADER = TRUE;
 ```
+
+✅ Retrieve all the rowa from *latest_videos_by_tag*:
+```
+SELECT * FROM latest_videos_by_tag;
+```
+
+
+Verify that you get 4 rows as expected.
+
+The rows should be grouped by a tag and, within each partition, ordered in descending order of an added date.
+
+
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
