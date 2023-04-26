@@ -13,7 +13,7 @@
     <div class="container px-4 py-2">
      <div class="row g-4 py-2 row-cols-1 row-cols-lg-1">
       <div class="feature col div-choice">
-            <div class="scenario-description">Clustering Columns</div>
+            <div class="scenario-description">DS201 Exercise 3: Clustering Columns</div>
             <ul>
               <li><span class="scenario-description-attribute">Difficulty</span>: Beginner</li>
               <li><span class="scenario-description-attribute">Time</span>: 10 minutes</li>
@@ -21,7 +21,7 @@
             <div class="scenario-objectives">In this hands-on lab, you will:</div>
             <ul>
               <li><span class="scenario-objective">Create tables with different clustering columns</span></li>
-              <li><span class="scenario-objective">Download and install Cassandra from a tarball</span></li>
+              <li><span class="scenario-objective">Execute CQL queries over tables with different clustering columns</span></li>
             </ul>
             <div>
             Clustering columns are the columns that are part of the primary key, but are not part of the partition key. This exercise will help you understand how clustering columns affects queries and how you can filter rows with them.
