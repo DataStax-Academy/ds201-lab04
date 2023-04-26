@@ -50,10 +50,16 @@ WITH HEADER = TRUE;
 ```
 
 ✅ Retrieve all the rowa from *latest_videos_by_tag*:
+
+<details class="katapod-details">
+  <summary>Solution</summary>
+
 ```
 SELECT * FROM latest_videos_by_tag;
 ```
 
+</details>
+<br>
 
 Verify that you get 4 rows as expected.
 

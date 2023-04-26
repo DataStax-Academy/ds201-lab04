@@ -60,37 +60,71 @@ In this table the prartition key is `tag` and the clustering column is `video_id
 Clustering columns support both equality and inequality predicates for CQL queries and also allow ordering within a partition. Define and execute several CQL queries against table videos_by_tag that use equality (=) and inequality (>,>=,<,<=) predicates, as well as row ordering with the ORDER BY clause.
 
 ✅ Select *all* videos:
+
+<details class="katapod-details">
+  <summary>Solution</summary>
+
 ```
 SELECT * FROM videos_by_tag;
 ```
 
+</details>
+<br>
+
 ✅ Select a specific partition:
+
+<details class="katapod-details">
+  <summary>Solution</summary>
+
 ```
 SELECT * FROM videos_by_tag
 WHERE tag = 'cassandra';
 ```
 
+</details>
+<br>
+
 ✅ Select a specific video:
+
+<details class="katapod-details">
+  <summary>Solution</summary>
+
 ```
 SELECT * FROM videos_by_tag
 WHERE tag = 'cassandra' AND
       video_id =  245e8024-14bd-11e5-9743-8238356b7e32;
 ```
 
+</details>
+<br>
+
 ✅ Select videos using an inequality:
+
+<details class="katapod-details">
+  <summary>Solution</summary>
+
 ```
 SELECT * FROM videos_by_tag
 WHERE tag = 'cassandra' AND
       video_id <= 245e8024-14bd-11e5-9743-8238356b7e32;
 ```
 
+</details>
+<br>
+
 ✅ Select videos using an inequality and reverse the order:
+
+<details class="katapod-details">
+  <summary>Solution</summary>
+
 ```
 SELECT * FROM videos_by_tag
 WHERE tag = 'cassandra' AND
       video_id <= 245e8024-14bd-11e5-9743-8238356b7e32
 ORDER BY video_id DESC;
 ```
+</details>
+<br>
 
 <!-- NAVIGATION -->
 <div id="navigation-bottom" class="navigation-bottom">
