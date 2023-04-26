@@ -28,12 +28,12 @@ Use `nodetool` to verify that Cassandra is running. (You may need to run this co
 
 ✅ Verify that Cassandra is running.
 ```
-apache-cassandra-4.1.0/bin/nodetool status
+nodetool status
 ```
 
 ✅ Start 'cqlsh' so you can execute CQL statements:
 ```
-apache-cassandra-4.1.0/bin/cqlsh
+cqlsh
 ```
 
 ✅ Switch to the *killrvideo* keyspace via the `USE` command:
